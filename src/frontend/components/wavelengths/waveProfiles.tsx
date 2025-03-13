@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
 
-import LatitudeDate from "./latitudeDate";
-import Predefined from "./predefined";
-import WaterOzone from "./waterOzone";
-import Radiosonde from "./radiosonde";
+import Predefined from "../atmosProfile/predefined";
+import Range from "./range";
+import RangeFilter from "./rangeFilter";
+import SingleValue from "./single";
 
-export default function AtmosProfiles() {
+export default function WaveProfiles() {
     const [selectedAtmosProfile, setSelectedAtmosProfile] = useState('latDate');
 
     return (
@@ -19,16 +19,16 @@ export default function AtmosProfiles() {
                     onChange={e => setSelectedAtmosProfile(e.target.value)}
                     className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 >
-                    <option value="latDate">Latitude and Date</option>
-                    <option value="predefined">Predefined Profiles</option>
-                    <option value="waterOzone">Water and Ozone</option>
-                    <option value="radiosonde">Radiosonde</option> s
+                    <option value="latDate">Single Value</option>
+                    <option value="predefined">Range</option>
+                    <option value="waterOzone">Range with filter</option>
+                    <option value="predefined">Predefined Profiles</option> s
                 </select>
             </label>
-            {selectedAtmosProfile === "latDate" && <LatitudeDate/>}
+            {selectedAtmosProfile === "latDate" && <SingleValue/>}
+            {selectedAtmosProfile === "predefined" && <Range/>}
+            {selectedAtmosProfile === "waterOzone" && <RangeFilter/>}
             {selectedAtmosProfile === "predefined" && <Predefined/>}
-            {selectedAtmosProfile === "waterOzone" && <WaterOzone/>}
-            {selectedAtmosProfile === "radiosonde" && <Radiosonde/>}
         </div>
     </div>
     );

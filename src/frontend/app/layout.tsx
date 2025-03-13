@@ -18,10 +18,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <header className="px-4 py-2 border-b bg-teal-600">
-          <div className="max-w-10xl mx-auto  flex flex-row items-center justify-between">
-          </div>
-      </header>
         {children}
       </body>
     </html>

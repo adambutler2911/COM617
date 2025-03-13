@@ -1,9 +1,9 @@
-export default function Gamma() {
+export default function Range() {
     return (
         <div className="flex flex-col justify-center items-center">
             <div className="w-3/4 mb-6">
                 <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
-                    Minimum Aerosol Radius
+                    Starting Wavelength
                 </label>
                 <input
                     name="minRad"
@@ -11,7 +11,7 @@ export default function Gamma() {
                     placeholder="Min Radius"
                 />
                 <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
-                    Maximum Aerosol Radius
+                    End Wavelength
                 </label>
                 <input
                     name="maxRad"
@@ -20,5 +20,5 @@ export default function Gamma() {
                 />
             </div>
         </div>
-  );
-  }
+    );
+}

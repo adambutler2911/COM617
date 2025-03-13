@@ -4,6 +4,8 @@ import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
 import AtmosProfiles from "@/components/atmosProfile/AtmosphericProfiles";
+import AerosolProfiles from "@/components/aeroProfile/AerosolProfiles";
+import WaveProfiles from "@/components/wavelengths/waveProfiles";
 
 export default function Form() {
   const router = useRouter()
@@ -32,6 +34,12 @@ export default function Form() {
         <div className="flex flex-col justify-center items-center">
           <div className="w-3/4 mb-6">
             <AtmosProfiles/>
+          </div>
+          <div className="w-3/4 mb-6">
+            <AerosolProfiles/>
+          </div>
+          <div className="w-3/4 mb-6">
+            <WaveProfiles/>
           </div>
           <button
             onClick={() => router.push('./')}
