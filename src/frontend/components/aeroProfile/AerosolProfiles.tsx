@@ -10,7 +10,7 @@ import SunPhotometer from "./sunPhotometer";
 import CustomProfiles from "./customProfile";
 
 export default function AerosolProfiles() {
-    const [selectedAtmosProfile, setSelectedAtmosProfile] = useState('predefined');
+    const [selectedAeroProfile, setSelectedAeroProfile] = useState('predefined');
 
     return (
     <div className="flex flex-col justify-center items-center">
@@ -18,8 +18,8 @@ export default function AerosolProfiles() {
             <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
                 Pick an Atmospheric Profile:    
                 <select
-                    value={selectedAtmosProfile} 
-                    onChange={e => setSelectedAtmosProfile(e.target.value)}
+                    value={selectedAeroProfile} 
+                    onChange={e => setSelectedAeroProfile(e.target.value)}
                     className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 >
                     <option value="predefined">Predefined Profiles</option>
@@ -31,13 +31,13 @@ export default function AerosolProfiles() {
                     <option value="userDefined">Custom Profiles</option>
                 </select>
             </label>
-            {selectedAtmosProfile === "predefined" && <Predefined/>}
-            {selectedAtmosProfile === "mie" && <MIEFile/>}
-            {selectedAtmosProfile === "multimodal" && <Multimodal/>}
-            {selectedAtmosProfile === "modifiedGamma" && <Gamma/>}
-            {selectedAtmosProfile === "jungePower" && <JungePower/>}
-            {selectedAtmosProfile === "sunPhotometer" && <SunPhotometer/>}
-            {selectedAtmosProfile === "userDefined" && <CustomProfiles/>}
+            {selectedAeroProfile === "predefined" && <Predefined/>}
+            {selectedAeroProfile === "mie" && <MIEFile/>}
+            {selectedAeroProfile === "multimodal" && <Multimodal/>}
+            {selectedAeroProfile === "modifiedGamma" && <Gamma/>}
+            {selectedAeroProfile === "jungePower" && <JungePower/>}
+            {selectedAeroProfile === "sunPhotometer" && <SunPhotometer/>}
+            {selectedAeroProfile === "userDefined" && <CustomProfiles/>}
         </div>
     </div>
     );
