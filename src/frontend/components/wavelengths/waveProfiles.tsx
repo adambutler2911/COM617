@@ -7,7 +7,7 @@ import RangeFilter from "./rangeFilter";
 import SingleValue from "./single";
 
 export default function WaveProfiles() {
-    const [selectedWaveProfile, setSelectedWaveProfile] = useState('latDate');
+    const [selectedWaveProfile, setSelectedWaveProfile] = useState('singleVal');
 
     return (
     <div className="flex flex-col justify-center items-center">

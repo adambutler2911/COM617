@@ -16,7 +16,7 @@ export default function AerosolProfiles() {
     <div className="flex flex-col justify-center items-center">
         <div className="w-3/4 mb-6">
             <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
-                Pick an Atmospheric Profile:    
+                Pick an Aerosol Profile:    
                 <select
                     value={selectedAeroProfile} 
                     onChange={e => setSelectedAeroProfile(e.target.value)}
