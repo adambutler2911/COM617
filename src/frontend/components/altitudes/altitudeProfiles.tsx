@@ -1,24 +1,29 @@
-export default function Gamma() {
+"use client";
+
+export default function AltitudeProfiles() {
     return (
-        <div className="flex flex-col justify-center items-center">
-            <div className="w-3/4 mb-6">
+    <div className="flex flex-col justify-center items-center">
+        <div className="w-3/4 mb-6">
+            <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
+                Set Optional Altitude Values:   
+            </label>
                 <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
-                    Minimum Aerosol Radius
+                    Target Altitude
                 </label>
                 <input
-                    name="minRad"
+                    name="targetAlt"
                     className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder="Min Radius"
+                    placeholder="targetAlt"
                 />
                 <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
-                    Maximum Aerosol Radius
+                    Sensor Altitudee
                 </label>
                 <input
-                    name="maxRad"
+                    name="sensorAlt"
                     className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    placeholder="Max Radius"
+                    placeholder="sensorAlt"
                 />
-            </div>
         </div>
-  );
-  }
+    </div>
+    );
+}
