@@ -5,7 +5,7 @@ export default function Predefined() {
 
     return (
     <div className="flex flex-col justify-center items-center">
-        <div className="w-3/4 mb-6">
+        <div className="w-3/4 mb-[6px]">
             <select
                 value={selectedAeroProfile} 
                 onChange={e => setSelectedAeroProfile(e.target.value)}

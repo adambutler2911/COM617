@@ -1,7 +1,7 @@
 export default function JungePower() {
     return (
         <div className="flex flex-col justify-center items-center">
-            <div className="w-3/4 mb-6">
+            <div className="w-3/4 mb-[6px]">
                 <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
                     Minimum Aerosol Radius
                 </label>

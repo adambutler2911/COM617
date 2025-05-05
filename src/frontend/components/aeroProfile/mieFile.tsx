@@ -1,7 +1,7 @@
 export default function MIEFile() {
     return (
         <div className="flex flex-col justify-center items-center">
-            <div className="w-3/4 mb-6">
+            <div className="w-3/4 mb-[6px]">
                 <input type="file" name="mieFile" accept="text/*"
                     className="block w-full border border-gray-300 shadow-sm rounded-lg text-sm
                         file:bg-green-600 file:border-0
