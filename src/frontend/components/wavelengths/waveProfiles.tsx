@@ -17,7 +17,7 @@ export default function WaveProfiles() {
                 <select
                     value={selectedWaveProfile} 
                     onChange={e => setSelectedWaveProfile(e.target.value)}
-                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
                     form="parameterForm"
                     name="waveProfile"
                 >

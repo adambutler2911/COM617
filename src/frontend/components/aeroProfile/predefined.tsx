@@ -9,7 +9,7 @@ export default function Predefined() {
             <select
                 value={selectedAeroProfile} 
                 onChange={e => setSelectedAeroProfile(e.target.value)}
-                className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
             >
                 <option value="NoAerosols">NoAerosols</option>
                 <option value="Continental">Continental</option>

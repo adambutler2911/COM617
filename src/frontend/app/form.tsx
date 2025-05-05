@@ -38,20 +38,20 @@ export default function Form() {
     };
 
     return (
-    <div className="col-span-35 bg-white rounded-lg shadow-lg p-10 transition-transform h-full text-center mr-6">
+    <div className="col-span-35 bg-white rounded-lg shadow-lg p-4 transition-transform h-full text-center mr-6">
         <form
             onSubmit={handleSubmit}
-            className="space-y-4 md:space-y-5 items-center justify-center h-full"
+            className="space-y-4 md:space-y-5 h-full"
             data-cy="inputForm"
             id="parameterForm"
         >
-            <div className="grid grid-cols-2 gap-[8px] content-start items-center">
-                <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
+            <div className="grid grid-cols-2 gap-[8px] content-start items-start">
+                <label className="col-span-2 block mt-4 mb-2 text-left text-gray-700 font-bold">
                     Pick desired output:    
                     <select
                         value={selectedOutput} 
                         onChange={e => setSelectedOutput(e.target.value)}
-                        className="col-span-2 bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
+                        className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
                     >
                         <option value="graph">Graph</option>
                         <option value="raw">Raw Text</option>

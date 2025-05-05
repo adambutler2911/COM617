@@ -11,7 +11,7 @@ export default async function RootLayout({children,}: {children: React.ReactNode
     return (
         <html lang="en">
             <body className="h-screen bg-(--main-bg)">
-                <Navbar className="sticky top-0 h-[50px] mb-[20px] bg-(--navbar-bg) border-(--navbar-border)"></Navbar>
+                <Navbar className="z-50 sticky top-0 h-[50px] mb-[20px] bg-(--navbar-bg) border-(--navbar-border)"></Navbar>
                 {children}
             </body>
         </html>

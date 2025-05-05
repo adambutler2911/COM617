@@ -7,7 +7,7 @@ export default function LatitudeDate() {
         </label>
         <input
             name="atmoLat"
-            className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
             placeholder="Latitude"
             form="parameterForm"
         />
@@ -16,7 +16,7 @@ export default function LatitudeDate() {
         </label>
         <input
             name="atmoDate"
-            className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
             placeholder="DD-MM-YYYY"
             form="parameterForm"
         />

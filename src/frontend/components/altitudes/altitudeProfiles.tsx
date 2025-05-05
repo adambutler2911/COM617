@@ -12,7 +12,7 @@ export default function AltitudeProfiles() {
                 </label>
                 <input
                     name="targetAlt"
-                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
                     placeholder="targetAlt"
                     form="parameterForm"
                 />
@@ -21,7 +21,7 @@ export default function AltitudeProfiles() {
                 </label>
                 <input
                     name="sensorAlt"
-                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
                     placeholder="sensorAlt"
                     form="parameterForm"
                 />

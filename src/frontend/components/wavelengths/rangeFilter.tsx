@@ -7,7 +7,7 @@ export default function RangeFilter() {
                 </label>
                 <input
                     name="minWave"
-                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
                     placeholder="Starting Wavelength"
                 />
                 <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
@@ -15,7 +15,7 @@ export default function RangeFilter() {
                 </label>
                 <input
                     name="maxWave"
-                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
                     placeholder="End Wavelength"
                 />
                 <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
@@ -23,7 +23,7 @@ export default function RangeFilter() {
                 </label>
                 <input
                     name="waveFilter"
-                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
                     placeholder="Filter"
                 />
             </div>
