@@ -92,32 +92,33 @@ class SixSHandler():
                 self.s.aero_profile = jsonData['waveProfilePredefined']
     
     def graph(self):
-        if self.waveProfile == "LANDSAT_OLI":
-            wavelengths, results = SixSHelpers.Wavelengths.run_landsat_oli(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "S2A_MSI":
-            wavelengths, results = SixSHelpers.Wavelengths.run_s2a_msi(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "S3A_OLCI":
-            wavelengths, results = SixSHelpers.Wavelengths.run_s3a_olci(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "S3A_SLSTR":
-            wavelengths, results = SixSHelpers.Wavelengths.run_s3a_slstr(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "S2B_MSI":
-            wavelengths, results = SixSHelpers.Wavelengths.run_s2b_msi(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "S3B_OLCI":
-            wavelengths, results = SixSHelpers.Wavelengths.run_s3b_olci(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "S3B_SLSTR":
-            wavelengths, results = SixSHelpers.Wavelengths.run_s3b_slstr(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "ACCURATE_MODIS_TERRA":
-            wavelengths, results = SixSHelpers.Wavelengths.run_terra(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "ACCURATE_MODIS_AQUA":
-            wavelengths, results = SixSHelpers.Wavelengths.run_aqua(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "PROBAV_1":
-            wavelengths, results = SixSHelpers.Wavelengths.run_probav_1(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "PROBAV_2":
-            wavelengths, results = SixSHelpers.Wavelengths.run_probav_2(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "PROBAV_3":
-            wavelengths, results = SixSHelpers.Wavelengths.run_probav_3(self.s, output_name='apparent_radiance')
-        elif self.waveProfile == "FULL":
-            wavelengths, results = SixSHelpers.Wavelengths.run_whole_range(self.s, output_name='apparent_radiance')
+        if isinstance(self.waveProfile, str):
+            if self.waveProfile == "LANDSAT_OLI":
+                wavelengths, results = SixSHelpers.Wavelengths.run_landsat_oli(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "S2A_MSI":
+                wavelengths, results = SixSHelpers.Wavelengths.run_s2a_msi(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "S3A_OLCI":
+                wavelengths, results = SixSHelpers.Wavelengths.run_s3a_olci(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "S3A_SLSTR":
+                wavelengths, results = SixSHelpers.Wavelengths.run_s3a_slstr(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "S2B_MSI":
+                wavelengths, results = SixSHelpers.Wavelengths.run_s2b_msi(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "S3B_OLCI":
+                wavelengths, results = SixSHelpers.Wavelengths.run_s3b_olci(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "S3B_SLSTR":
+                wavelengths, results = SixSHelpers.Wavelengths.run_s3b_slstr(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "ACCURATE_MODIS_TERRA":
+                wavelengths, results = SixSHelpers.Wavelengths.run_terra(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "ACCURATE_MODIS_AQUA":
+                wavelengths, results = SixSHelpers.Wavelengths.run_aqua(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "PROBAV_1":
+                wavelengths, results = SixSHelpers.Wavelengths.run_probav_1(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "PROBAV_2":
+                wavelengths, results = SixSHelpers.Wavelengths.run_probav_2(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "PROBAV_3":
+                wavelengths, results = SixSHelpers.Wavelengths.run_probav_3(self.s, output_name='apparent_radiance')
+            elif self.waveProfile == "FULL":
+                wavelengths, results = SixSHelpers.Wavelengths.run_whole_range(self.s, output_name='apparent_radiance')
         else:
             wavelengths, results = SixSHelpers.Wavelengths.run_wavelengths(self.s, self.waveProfile, output_name='apparent_radiance')
 
