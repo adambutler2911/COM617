@@ -13,7 +13,7 @@ export default function CorrectionProfiles() {
     return (
     <div className="flex flex-col justify-center items-center">
         <div className="w-3/4 mb-[6px]">
-            <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
+            <label className="block mb-2 text-left text-gray-700 font-bold">
                 Pick a Correction Profile:    
                 <select
                     value={selectedAtmosProfile} 

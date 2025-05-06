@@ -2,11 +2,9 @@
 import { useState } from "react";
 
 import Predefined from "./predefined";
-import MIEFile from "./mieFile";
 import Multimodal from "./multimodal";
 import Gamma from "./gamma";
 import JungePower from "./jungePower";
-import SunPhotometer from "./sunPhotometer";
 import CustomProfiles from "./customProfile";
 
 export default function AerosolProfiles() {
@@ -15,7 +13,7 @@ export default function AerosolProfiles() {
     return (
     <div className="flex flex-col justify-center items-center">
         <div className="w-3/4 mb-[6px]">
-            <label className="block mt-4 mb-2 text-left text-gray-700 font-bold">
+            <label className="block mb-2 text-left text-gray-700 font-bold">
                 Pick an Aerosol Profile:    
                 <select
                     value={selectedAeroProfile}
@@ -34,11 +32,9 @@ export default function AerosolProfiles() {
                 </select>
             </label>
             {selectedAeroProfile === "predefined" && <Predefined/>}
-            {selectedAeroProfile === "mie" && <MIEFile/>}
             {selectedAeroProfile === "multimodal" && <Multimodal/>}
             {selectedAeroProfile === "modifiedGamma" && <Gamma/>}
             {selectedAeroProfile === "jungePower" && <JungePower/>}
-            {selectedAeroProfile === "sunPhotometer" && <SunPhotometer/>}
             {selectedAeroProfile === "userDefined" && <CustomProfiles/>}
         </div>
     </div>

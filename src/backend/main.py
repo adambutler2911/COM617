@@ -29,7 +29,7 @@ async def root(request: Request):
 
     newSim = SixSHandler()
     newSim.setAtmosProfile(data)
-    newSim.setWaveProfile(data)
+    newSim.setWaveProfile_Graph(data)
 
     graph_json = newSim.graph()
     graph_json = jsonable_encoder(graph_json)
@@ -42,7 +42,7 @@ async def root(request: Request):
 
     newSim = SixSHandler()
     newSim.setAtmosProfile(data)
-    newSim.setWaveProfile(data)
+    newSim.setWaveProfile_Raw(data)
 
     return newSim.raw()
 

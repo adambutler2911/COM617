@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import AtmosProfiles from "@/components/atmosProfile/AtmosphericProfiles";
 import AerosolProfiles from "@/components/aeroProfile/AerosolProfiles";
 import WaveProfiles from "@/components/wavelengths/waveProfiles";
+import ReflectanceProfiles from "@/components/groundReflectance/ReflectanceProfiles";
 import AltitudeProfiles from "@/components/altitudes/altitudeProfiles";
 import CorrectionProfiles from "@/components/atmoCorrections/correctionProfiles";
 
@@ -46,7 +47,7 @@ export default function Form() {
             id="parameterForm"
         >
             <div className="grid grid-cols-2 gap-[8px] content-start items-start">
-                <label className="col-span-2 block mt-4 mb-2 text-left text-gray-700 font-bold">
+                <label className="col-span-2 block mb-2 text-left text-gray-700 font-bold">
                     Pick desired output:    
                     <select
                         value={selectedOutput} 
@@ -67,6 +68,9 @@ export default function Form() {
                     <WaveProfiles/>
                 </div>
                 <div className="w-full mb-[6px]">
+                    <ReflectanceProfiles/>
+                </div>
+                <div className="col-span-2 w-full mb-[6px]">
                     <AltitudeProfiles/>
                 </div>
                 <div className="col-span-2 w-full mb-[6px]">
