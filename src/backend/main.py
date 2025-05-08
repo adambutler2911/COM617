@@ -30,6 +30,7 @@ async def root(request: Request):
     newSim = SixSHandler()
     newSim.setAtmosProfile(data)
     newSim.setAtmosCorrections(data)
+    newSim.setAltitudeProfiles(data)
     newSim.setGroundReflectance(data)
     newSim.setWaveProfile_Graph(data)
 
@@ -45,6 +46,7 @@ async def root(request: Request):
     newSim = SixSHandler()
     newSim.setAtmosProfile(data)
     newSim.setAtmosCorrections(data)
+    newSim.setAltitudeProfiles(data)
     newSim.setGroundReflectance(data)
     newSim.setWaveProfile_Raw(data)
 

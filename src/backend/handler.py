@@ -10,6 +10,12 @@ class SixSHandler():
     waveProfile = None
 
     def __init__(self):
+        self.target_alt_pres = None
+        self.sensor_alt_pres = None
+        self.sensor_altitude = None
+        self.aot = None
+        self.water = None
+        self.ozone = None
         pass
 
     @classmethod
@@ -57,22 +63,27 @@ class SixSHandler():
         elif jsonData['corrProfile'] == 'noCorr':
             self.s.atmos_corr = AtmosCorr.NoAtmosCorr()
 
-    def setAltitudeProfile(self, jsonData):
+    def setAltitudeProfiles(self, jsonData):
         if jsonData['altProfile'] == 'seaLevel':
-            self.s.altitudes = Altitudes.set_target_sea_level()
+            self.target_alt_pres=0
         elif jsonData['altProfile'] == 'customAltitude':
             if jsonData['altitude'] != '':
-                self.s.altitudes = Altitudes.set_target_custom_altitude(float(jsonData['altitude']))
+                self.target_alt_pres = -1 * float(jsonData['altitude'])
         elif jsonData['altProfile'] == 'customPressure':
             if jsonData['pressure'] != '':
-                self.s.altitudes = Altitudes.set_target_pressure(float(jsonData['pressure']))
+                self.target_alt_pres = float(jsonData['pressure'])
         elif jsonData['altProfile'] == 'sensorSeaLevel':
-            self.s.altitudes = Altitudes.set_sensor_sea_level()
+            self.sensor_altitude = None
+            self.sensor_alt_pres = 0
         elif jsonData['altProfile'] == 'sensorSatelliteLevel':
-            self.s.altitudes = Altitudes.set_sensor_satellite_level()
+            self.sensor_altitude = None
+            self.sensor_alt_pres = -1000
         elif jsonData['altProfile'] == 'sensorCustomAltitude':
             if jsonData['altitude'] != '':
-                self.s.altitudes = Altitudes.set_sensor_custom_altitude(float(jsonData['altitude']))
+                self.sensor_altitude = -1 * float(jsonData['altitude'])
+                self.aot = -1
+                self.water = -1
+                self.ozone = -1
 
     def setGroundReflectance(self, jsonData):
         if jsonData['refProfile'] == 'homogeneous':
