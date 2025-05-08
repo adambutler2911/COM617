@@ -1,4 +1,14 @@
 import { useState } from "react";
+import Walthall from "./walthall";
+import Hapke from "./hapke";
+import Roujean from "./roujean";
+import Minnaert from "./minnaert";
+import Modis from "./modis";
+import Ocean from "./ocean";
+import Rahman from "./rahman";
+import Iaqunita from "./iaquinta";
+import Kuusk from "./kuusk";
+import CustomProfile from "./customeProfile";
 
 export default function Homogeneous() {
     const [selectedRefProfile, setRefProfile] = useState('Lambertian');
@@ -22,10 +32,19 @@ export default function Homogeneous() {
                 <option value="ocean">Ocean</option>
                 <option value="rahman">Rahman</option>
                 <option value="iaquinta">Iaquinta and Pinty</option>
-                <option value="verstraete">Verstraete, Pinty and Dickinson</option>
                 <option value="kuusk">Kuusk</option>
                 <option value="custom">Custom</option>
             </select>
+            {selectedRefProfile === "walthall" && <Walthall/>}
+            {selectedRefProfile === "hapke" && <Hapke/>}
+            {selectedRefProfile === "roujean" && <Roujean/>}
+            {selectedRefProfile === "minnaert" && <Minnaert/>}
+            {selectedRefProfile === "modis" && <Modis/>}
+            {selectedRefProfile === "ocean" && <Ocean/>}
+            {selectedRefProfile === "rahman" && <Rahman/>}
+            {selectedRefProfile === "iaquinta" && <Iaqunita/>}
+            {selectedRefProfile === "kuusk" && <Kuusk/>}
+            {selectedRefProfile === "custom" && <CustomProfile/>}
         </div>
     </div>
     );

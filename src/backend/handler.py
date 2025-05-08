@@ -54,6 +54,49 @@ class SixSHandler():
         elif jsonData['corrProfile'] == 'lamRef':
             if jsonData['reflectance'] != '':
                 self.s.atmos_corr = AtmosCorr.AtmosCorrLambertianFromRadiance(float(jsonData['reflectance']))
+        elif jsonData['corrProfile'] == 'noCorr':
+            self.s.atmos_corr = AtmosCorr.NoAtmosCorr()
+
+    def setGroundReflectance(self, jsonData):
+        if jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'lambertian':
+                self.s.ground_reflectance = GroundReflectance.HomogeneousLambertian(0.634)
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'walthall':
+                if jsonData['albedo'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousWalthall(2,3,5,float(jsonData['albedo']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'hapke':
+                if jsonData['albedo'] != '' and jsonData['assymetry'] != '' and jsonData['ampHotspot'] != '' and jsonData['widHotspot'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousHapke(float(jsonData['albedo']),float(jsonData['assymetry']),float(jsonData['ampHotspot']),float(jsonData['widHotspot']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'roujean':
+                if jsonData['albedo'] != '' and jsonData['geometric1'] != '' and jsonData['geometric2'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousRoujean(float(jsonData['albedo']),float(jsonData['geometric1']),float(jsonData['geometric2']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'minnaert':
+                if jsonData['surfaceAlbedo'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousMinnaert(2,float(jsonData['albedo']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'modis':
+                if jsonData['lamWeight'] != '' and jsonData['rossWeight'] != '' and jsonData['liWeight'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousMODISBRDF(float(jsonData['lamWeight']),float(jsonData['rossWeight']),float(jsonData['liWeight']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'ocean':
+                if jsonData['windSpeed'] != '' and jsonData['azimuth'] != '' and jsonData['salinity'] != '' and jsonData['pigment'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousOcean(float(jsonData['windSpeed']),float(jsonData['azimuth']),float(jsonData['salinity']),float(jsonData['pigment']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'rahman':
+                if jsonData['intensity'] != '' and jsonData['asymmetry'] != '' and jsonData['structural'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousRahman(float(jsonData['intensity']),float(jsonData['asymmetry']),float(jsonData['structural']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'iaquinta':
+                if jsonData['leafArea'] != '' and jsonData['hotspotParameter'] != '' and jsonData['leafReflectance'] != '' and jsonData['leafTransmittance'] != '' and jsonData['soilAlbedo'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousIaquintaPinty(jsonData['leafDistribution'],jsonData['hotspotSetting'],float(jsonData['leafArea']),float(jsonData['hotspotParameter']),float(jsonData['leafReflectance']),float(jsonData['leafTransmittance']),float(jsonData['soilAlbedo']))
+        elif jsonData['refProfile'] == 'homogeneous':
+            if jsonData['refProfileHomo'] == 'kuusk':
+                if jsonData['leafArea'] != '' and jsonData['ladEps'] != '' and jsonData['ladThm'] != '' and jsonData['leafRelative'] != '' and jsonData['chlorophyll'] != '' and jsonData['leafThickness'] != '' and jsonData['leafLayers'] != '' and jsonData['leafWax'] != '' and jsonData['soilWeight'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HomogeneousKuuskMultispectralCR(float(jsonData['leafArea']),float(jsonData['ladEps']),float(jsonData['ladThm']),float(jsonData['leafRelative']),float(jsonData['chlorophyll']),float(jsonData['leafThickness']),float(jsonData['leafLayers']),float(jsonData['leafWax']),float(jsonData['soilWeight']))
 
     def setWaveProfile_Raw(self, jsonData):
         if jsonData['waveProfile'] == 'singleVal':
