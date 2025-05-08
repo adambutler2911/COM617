@@ -8,7 +8,6 @@ import Ocean from "./ocean";
 import Rahman from "./rahman";
 import Iaqunita from "./iaquinta";
 import Kuusk from "./kuusk";
-import CustomProfile from "./customeProfile";
 
 export default function Homogeneous() {
     const [selectedRefProfile, setRefProfile] = useState('Lambertian');
@@ -33,7 +32,6 @@ export default function Homogeneous() {
                 <option value="rahman">Rahman</option>
                 <option value="iaquinta">Iaquinta and Pinty</option>
                 <option value="kuusk">Kuusk</option>
-                <option value="custom">Custom</option>
             </select>
             {selectedRefProfile === "walthall" && <Walthall/>}
             {selectedRefProfile === "hapke" && <Hapke/>}
@@ -44,7 +42,6 @@ export default function Homogeneous() {
             {selectedRefProfile === "rahman" && <Rahman/>}
             {selectedRefProfile === "iaquinta" && <Iaqunita/>}
             {selectedRefProfile === "kuusk" && <Kuusk/>}
-            {selectedRefProfile === "custom" && <CustomProfile/>}
         </div>
     </div>
     );

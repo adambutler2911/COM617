@@ -57,6 +57,23 @@ class SixSHandler():
         elif jsonData['corrProfile'] == 'noCorr':
             self.s.atmos_corr = AtmosCorr.NoAtmosCorr()
 
+    def setAltitudeProfile(self, jsonData):
+        if jsonData['altProfile'] == 'seaLevel':
+            self.s.altitudes = Altitudes.set_target_sea_level()
+        elif jsonData['altProfile'] == 'customAltitude':
+            if jsonData['altitude'] != '':
+                self.s.altitudes = Altitudes.set_target_custom_altitude(float(jsonData['altitude']))
+        elif jsonData['altProfile'] == 'customPressure':
+            if jsonData['pressure'] != '':
+                self.s.altitudes = Altitudes.set_target_pressure(float(jsonData['pressure']))
+        elif jsonData['altProfile'] == 'sensorSeaLevel':
+            self.s.altitudes = Altitudes.set_sensor_sea_level()
+        elif jsonData['altProfile'] == 'sensorSatelliteLevel':
+            self.s.altitudes = Altitudes.set_sensor_satellite_level()
+        elif jsonData['altProfile'] == 'sensorCustomAltitude':
+            if jsonData['altitude'] != '':
+                self.s.altitudes = Altitudes.set_sensor_custom_altitude(float(jsonData['altitude']))
+
     def setGroundReflectance(self, jsonData):
         if jsonData['refProfile'] == 'homogeneous':
             if jsonData['refProfileHomo'] == 'lambertian':
@@ -97,6 +114,10 @@ class SixSHandler():
             if jsonData['refProfileHomo'] == 'kuusk':
                 if jsonData['leafArea'] != '' and jsonData['ladEps'] != '' and jsonData['ladThm'] != '' and jsonData['leafRelative'] != '' and jsonData['chlorophyll'] != '' and jsonData['leafThickness'] != '' and jsonData['leafLayers'] != '' and jsonData['leafWax'] != '' and jsonData['soilWeight'] != '':
                     self.s.ground_reflectance = GroundReflectance.HomogeneousKuuskMultispectralCR(float(jsonData['leafArea']),float(jsonData['ladEps']),float(jsonData['ladThm']),float(jsonData['leafRelative']),float(jsonData['chlorophyll']),float(jsonData['leafThickness']),float(jsonData['leafLayers']),float(jsonData['leafWax']),float(jsonData['soilWeight']))
+        elif jsonData['refProfile'] == 'heterogeneous':
+            if jsonData['refProfileHomo'] == 'lambertian':
+                if jsonData['radius'] != '':
+                    self.s.ground_reflectance = GroundReflectance.HeterogeneousLambertian(float(jsonData['radius']),0.5,0.5)
 
     def setWaveProfile_Raw(self, jsonData):
         if jsonData['waveProfile'] == 'singleVal':

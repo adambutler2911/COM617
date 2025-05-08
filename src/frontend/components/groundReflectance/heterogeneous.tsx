@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HeterogeneousLambertian from "./heteroLambertian";
 
 export default function Heterogeneous() {
     const [selectedRefProfile, setRefProfile] = useState('Lambertian');
@@ -15,6 +16,7 @@ export default function Heterogeneous() {
             >
                 <option value="lambertian">Lambertian</option>
             </select>
+            {selectedRefProfile === "lambertian" && <HeterogeneousLambertian/>}
         </div>
     </div>
     );
