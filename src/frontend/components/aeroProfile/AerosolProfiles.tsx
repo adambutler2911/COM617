@@ -23,11 +23,9 @@ export default function AerosolProfiles() {
                     name="aeroProfile"
                 >
                     <option value="predefined">Predefined Profiles</option>
-                    <option value="mie">From MIE File</option>
                     <option value="multimodal">Multimodal Log Normal Distribution</option>
                     <option value="modifiedGamma">Modified Gamma Distribution</option>
                     <option value="jungePower">Junge Power Law Distribution</option>
-                    <option value="sunPhotometer">Sun Photometer Distribution</option>
                     <option value="userDefined">Custom Profiles</option>
                 </select>
             </label>

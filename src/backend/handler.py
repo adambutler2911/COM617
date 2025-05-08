@@ -43,9 +43,33 @@ class SixSHandler():
         elif jsonData['atmoProfile'] == 'waterOzone':
             if jsonData['atmoWater'] != '' and jsonData['atmoOzone'] != '':
                 self.s.atmos_profile = AtmosProfile.UserWaterAndOzone(float(jsonData['atmoWater']), float(jsonData['atmoOzone']))
-        elif jsonData['atmoProfile'] == 'radiosonde':
-            if jsonData['atmoWater'] != '' and jsonData['atmoOzone'] != '':
-                self.s.atmos_profile = AtmosProfile.RadiosondeProfile()
+
+    def setAeroProfile(self, jsonData):
+        if jsonData['aeroProfile'] == 'predefined':
+                self.s.aero_profile = AeroProfile.PredefinedType(int(jsonData['aeroProfilePredefined']))
+        elif jsonData['aeroProfile'] == 'userDefined':
+            dustNumber = 0
+            waterNumber = 0
+            oceanicNumber = 0
+            sootNumber = 0
+            if jsonData['dust'] != '':
+                dustNumber = float(jsonData['dust'])
+            if jsonData['water'] != '':
+                waterNumber = float(jsonData['water'])
+            if jsonData['oceanic'] != '':
+                oceanicNumber = float(jsonData['oceanic'])
+            if jsonData['soot'] != '':
+                sootNumber = float(jsonData['soot'])
+            self.s.aero_profile = AeroProfile.User(dust=dustNumber,water=waterNumber,oceanic=oceanicNumber,soot=sootNumber)
+        elif jsonData['aeroProfile'] == 'multimodal':
+            if jsonData['minRad'] != '' and jsonData['maxRad'] != '':
+                self.s.aero_profile = AeroProfile.MultimodalLogNormalDistribution(float(jsonData['minRad'],float(jsonData['maxRad'])))
+        elif jsonData['aeroProfile'] == 'modifiedGamma':
+            if jsonData['minRad'] != '' and jsonData['maxRad'] != '':
+                self.s.aero_profile = AeroProfile.ModifiedGammaDistribution(float(jsonData['minRad'],float(jsonData['maxRad'])))
+        elif jsonData['aeroProfile'] == 'jungePower':
+            if jsonData['minRad'] != '' and jsonData['maxRad'] != '':
+                self.s.aero_profile = AeroProfile.JungePowerLawDistribution(float(jsonData['minRad'],float(jsonData['maxRad'])))
 
     def setAtmosCorrections(self, jsonData):
         if jsonData['corrProfile'] == 'brdfRad':
@@ -165,23 +189,6 @@ class SixSHandler():
                 self.waveProfile = jsonData['waveProfilePredefined']
             else:
                 self.waveProfile = 'FULL'
-
-    def setAerosolProfile(self, jsonData):
-        if jsonData['aeroProfile'] == 'predefined':
-            if jsonData['aeroProfilePredefined'] != '':
-                self.s.aero_profile = AeroProfile.PredefinedType(getattr(AeroProfile, jsonData['waveProfilePredefined']))
-        elif jsonData['aeroProfile'] == 'custom':
-            if jsonData['minRad'] != '' and jsonData['maxRad'] != '':
-                self.s.aero_profile = np.arange(float(jsonData['minWave']),  float(jsonData['maxWave']), 0.005)
-        elif jsonData['aeroProfile'] == 'multimodal':
-            if jsonData['minRad'] != '' and jsonData['maxRad'] != '':
-                self.s.aeroProfile = np.arange(float(jsonData['minWave']),  float(jsonData['maxWave']), 0.005)
-        elif jsonData['waveProfile'] == 'modifiedGamma':
-            if jsonData['waveProfilePredefined'] != '':
-                self.s.aero_profile = jsonData['waveProfilePredefined']
-        elif jsonData['waveProfile'] == 'jungePower':
-            if jsonData['waveProfilePredefined'] != '':
-                self.s.aero_profile = jsonData['waveProfilePredefined']
     
     def graph(self):
         if isinstance(self.waveProfile, str):
