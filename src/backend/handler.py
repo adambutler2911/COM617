@@ -30,13 +30,30 @@ class SixSHandler():
             if jsonData['atmoLat'] != '' and jsonData['atmoDate'] != '':
                 self.s.atmos_profile = AtmosProfile.FromLatitudeAndDate(float(jsonData['atmoLat']), jsonData['atmoDate'])
         elif jsonData['atmoProfile'] == 'predefined':
-                self.s.atmos_profile = AtmosProfile.PredefinedType(int(jsonData['atmoProfilePredefined']))       
+                self.s.atmos_profile = AtmosProfile.PredefinedType(int(jsonData['atmoProfilePredefined'])) 
+        elif jsonData['atmoProfile'] == 'predefined':
+            if jsonData['atmoProfilePredefined'] != '':
+                self.s.atmos_profile = jsonData['atmoProfilePredefined']     
         elif jsonData['atmoProfile'] == 'waterOzone':
             if jsonData['atmoWater'] != '' and jsonData['atmoOzone'] != '':
                 self.s.atmos_profile = AtmosProfile.UserWaterAndOzone(float(jsonData['atmoWater']), float(jsonData['atmoOzone']))
         elif jsonData['atmoProfile'] == 'radiosonde':
             if jsonData['atmoWater'] != '' and jsonData['atmoOzone'] != '':
                 self.s.atmos_profile = AtmosProfile.RadiosondeProfile()
+
+    def setAtmosCorrections(self, jsonData):
+        if jsonData['corrProfile'] == 'brdfRad':
+            if jsonData['radiance'] != '':
+                self.s.atmos_corr = AtmosCorr.AtmosCorrBRDFFromRadiance(float(jsonData['radiance']))
+        elif jsonData['corrProfile'] == 'brdfRef':
+            if jsonData['reflectance'] != '':
+                self.s.atmos_corr = AtmosCorr.AtmosCorrBRDFFromReflectance(float(jsonData['reflectance']))
+        elif jsonData['corrProfile'] == 'lamRad':
+            if jsonData['radiance'] != '':
+                self.s.atmos_corr = AtmosCorr.AtmosCorrLambertianFromRadiance(float(jsonData['radiance']))
+        elif jsonData['corrProfile'] == 'lamRef':
+            if jsonData['reflectance'] != '':
+                self.s.atmos_corr = AtmosCorr.AtmosCorrLambertianFromRadiance(float(jsonData['reflectance']))
 
     def setWaveProfile_Raw(self, jsonData):
         if jsonData['waveProfile'] == 'singleVal':
