@@ -123,13 +123,33 @@ class SixSHandler():
             wavelengths, results = SixSHelpers.Wavelengths.run_wavelengths(self.s, self.waveProfile, output_name='apparent_radiance')
 
         df = {"Wavelength (μm)": wavelengths, "Pixel Radiance (W/m^2)":results}
-        chart = alt.Chart(pd.DataFrame(data=df)).mark_line().encode(
+        line_chart = alt.Chart(pd.DataFrame(data=df)).mark_line().encode(
             x="Wavelength (μm)",
-            y="Pixel Radiance (W/m^2)"
+            y="Pixel Radiance (W/m^2)",
         ).properties(
             width="container",
             height="container"
+        )
+
+        hover = alt.selection_point(on='pointerover', empty=False)
+        point_chart = alt.Chart(pd.DataFrame(data=df)).mark_point().encode(
+            x="Wavelength (μm)",
+            y="Pixel Radiance (W/m^2)",
+            tooltip=["Wavelength (μm)","Pixel Radiance (W/m^2)"],
+            opacity=alt.when(hover).then(alt.value(1.0)).otherwise(alt.value(0.0)),
+            size=alt.value(80)
+        ).properties(
+            width="container",
+            height="container"
+        ).add_params(
+            hover
+        )
+
+        chart = alt.layer(
+            line_chart,
+            point_chart
         ).interactive()
+
         return chart.to_json(indent=None)
     
     def raw(self):
