@@ -36,10 +36,7 @@ class SixSHandler():
             if jsonData['atmoLat'] != '' and jsonData['atmoDate'] != '':
                 self.s.atmos_profile = AtmosProfile.FromLatitudeAndDate(float(jsonData['atmoLat']), jsonData['atmoDate'])
         elif jsonData['atmoProfile'] == 'predefined':
-                self.s.atmos_profile = AtmosProfile.PredefinedType(int(jsonData['atmoProfilePredefined'])) 
-        elif jsonData['atmoProfile'] == 'predefined':
-            if jsonData['atmoProfilePredefined'] != '':
-                self.s.atmos_profile = jsonData['atmoProfilePredefined']     
+                self.s.atmos_profile = AtmosProfile.PredefinedType(int(jsonData['atmoProfilePredefined']))     
         elif jsonData['atmoProfile'] == 'waterOzone':
             if jsonData['atmoWater'] != '' and jsonData['atmoOzone'] != '':
                 self.s.atmos_profile = AtmosProfile.UserWaterAndOzone(float(jsonData['atmoWater']), float(jsonData['atmoOzone']))
@@ -150,7 +147,7 @@ class SixSHandler():
                 if jsonData['leafArea'] != '' and jsonData['ladEps'] != '' and jsonData['ladThm'] != '' and jsonData['leafRelative'] != '' and jsonData['chlorophyll'] != '' and jsonData['leafThickness'] != '' and jsonData['leafLayers'] != '' and jsonData['leafWax'] != '' and jsonData['soilWeight'] != '':
                     self.s.ground_reflectance = GroundReflectance.HomogeneousKuuskMultispectralCR(float(jsonData['leafArea']),float(jsonData['ladEps']),float(jsonData['ladThm']),float(jsonData['leafRelative']),float(jsonData['chlorophyll']),float(jsonData['leafThickness']),float(jsonData['leafLayers']),float(jsonData['leafWax']),float(jsonData['soilWeight']))
         elif jsonData['refProfile'] == 'heterogeneous':
-            if jsonData['refProfileHomo'] == 'lambertian':
+            if jsonData['refProfileHetero'] == 'lambertian':
                 if jsonData['radius'] != '':
                     self.s.ground_reflectance = GroundReflectance.HeterogeneousLambertian(float(jsonData['radius']),0.5,0.5)
 

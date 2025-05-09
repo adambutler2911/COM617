@@ -1,9 +1,9 @@
 "use client";
 
-import { FormEvent, useState} from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import embed from "vega-embed";
-
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 import AtmosProfiles from "@/components/atmosProfile/AtmosphericProfiles";
@@ -39,6 +39,7 @@ export default function Form() {
     };
 
     return (
+        
     <div className="col-span-35 bg-white rounded-lg shadow-lg p-4 transition-transform h-full text-center mr-6">
         <form
             onSubmit={handleSubmit}
