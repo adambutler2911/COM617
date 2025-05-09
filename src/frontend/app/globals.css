@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+    --navbar-bg: #a64d42;
+    --navbar-border: #823c33;
+    --button-bg: #893f36;
+    --button-hover-bg: #5c2a24;
+    --main-bg: #eeeeee;
+}

@@ -5,30 +5,26 @@ export default function Predefined() {
 
     return (
     <div className="flex flex-col justify-center items-center">
-        <div className="w-3/4 mb-6">
+        <div className="w-3/4 mb-[6px]">
             <select
                 value={selectedWaveType} 
                 onChange={e => setSelectedWaveType(e.target.value)}
+                className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1"
+                form="parameterForm"
+                name="waveProfilePredefined"
             >
-                <option value="landsatB1">Landsat OLI B1</option>
-                <option value="landsatB2">Landsat OLI B2</option>
-                <option value="landsatB3">Landsat OLI B3</option>
-                <option value="landsatB4">Landsat OLI B4</option>
-                <option value="landsatB5">Landsat OLI B5</option>
-                <option value="landsatB6">Landsat OLI B6</option>
-                <option value="landsatB7">Landsat OLI B7</option>
-                <option value="landsatB8">Landsat OLI B8</option>
-                <option value="landsatB9">Landsat OLI B9</option>
-                <option value="rapidEyeB1">RapidEye B1</option>
-                <option value="rapidEyeB2">RapidEye B2</option>
-                <option value="rapidEyeB3">RapidEye B3</option>
-                <option value="rapidEyeB4">RapidEye B4</option>
-                <option value="rapidEyeB5">RapidEye B5</option>
-                <option value="pleiadesB1">Pleiades B1</option>
-                <option value="pleiadesB2">Pleiades B2</option>
-                <option value="pleiadesB3">Pleiades B3</option>
-                <option value="pleiadesB4">Pleiades B4</option>
-                <option value="pleiadesPan">Pleiades Pan</option>
+                <option value="LANDSAT_OLI">Landsat OLI</option>
+                <option value="S2A_MSI">Sentinel-2A MSI</option>
+                <option value="S3A_OLCI">Sentinel-3A OLCI</option>
+                <option value="S3A_SLSTR">Sentinel-3A SLSTR</option>
+                <option value="S2B_MSI">Sentinel-2B MSI</option>
+                <option value="S3B_OLCI">Sentinel-3B OLCI</option>
+                <option value="S3B_SLSTR">Sentinel-3B SLSTR</option>
+                <option value="ACCURATE_MODIS_TERRA">MODIS TERRA</option>
+                <option value="ACCURATE_MODIS_AQUA">MODIS AQUA</option>
+                <option value="PROBAV_1">PROBAV 1</option>
+                <option value="PROBAV_2">PROBAV 2</option>
+                <option value="PROBAV_3">PROBAV 3</option>
             </select>
         </div>
     </div>
